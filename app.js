@@ -1,6 +1,7 @@
 const express = require("express")
 const app = express()
-const route = require("./routes/user.js")
+const userroute = require("./routes/user.js")
+const busroute = require("./routes/bus.js")
 const port = 2002
 
 console.log(`Server is Running...`)
@@ -11,7 +12,8 @@ app.get("/",(req,res)=>{
     res.status(200).send(`<h1> Welcome to Home Page... </h1>`)
 })
 
-app.use("/users",route)
+app.use("/users",userroute)
+app.use("/buses",busroute)
 
 app.use((req,res)=>{
     res.status(404).send(`<h1>Page Not Found...</h1>`)
